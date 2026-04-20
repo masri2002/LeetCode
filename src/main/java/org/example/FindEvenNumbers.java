@@ -5,7 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class FindEvenNumbers {
-    public int[] findEvenNumbers(int[] nums) {
+    public int findEvenNumbers(int[] nums) {
         int[] count = new int[10];
         for (int num : nums) {
             count[num]++;
@@ -18,7 +18,7 @@ public class FindEvenNumbers {
             res[i++] = num;
         }
         Arrays.sort(res);
-        return res;
+        return res.length;
     }
 
     private void backtrack(int[] count, Set<Integer> set, int curr, int pos) {

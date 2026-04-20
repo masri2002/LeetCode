@@ -4,7 +4,7 @@ package org.example;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-         KthCharacter kthCharacter=new KthCharacter();
-         System.out.println(kthCharacter.kthCharacter(5));
+        MaxDistance obj = new MaxDistance();
+        System.out.print(obj.maxDistance2(new int[]{1,1,1,6,1,1,1}));
     }
 }
