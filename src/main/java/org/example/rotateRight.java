@@ -44,21 +44,11 @@ public class rotateRight {
     }
 
     public static void main(String[] args) {
-        ListNode one = new ListNode(1);
-        ListNode two = new ListNode(2);
-        one.next = two;
-        ListNode three = new ListNode(3);
-        two.next = three;
-        ListNode four = new ListNode(4);
-        three.next = four;
-        ListNode five = new ListNode(5);
-        four.next = five;
-        rotateRight l = new rotateRight();
-        ListNode vode = l.rotateRight(one, 2);
-        while (vode != null) {
-            System.out.println(vode.val);
-            vode = vode.next;
-        }
+        ListNode one = new ListNode(1,
+                new ListNode(2,
+                        new ListNode(3,
+                                new ListNode(4,
+                                        new ListNode(5)))));
     }
 
 }
