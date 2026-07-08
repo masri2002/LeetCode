@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 public class MaximumElementAfterDecrementingAndRearranging {
     public int maximumElementAfterDecrementingAndRearranging(int[] arr) {
@@ -40,8 +41,22 @@ public class MaximumElementAfterDecrementingAndRearranging {
         return maxe;
     }
 
+    public boolean hasDuplicate(int[] nums) {
+        Arrays.sort(nums);
+        int[] freq = new int[nums[nums.length-1]+1];
+
+        for(int x:nums){
+            if(freq[x]>0){
+                return true;
+            }else{
+                freq[x]++;
+            }
+        }
+        return false;
+    }
+
     public static void main(String[] args) {
         MaximumElementAfterDecrementingAndRearranging maximumElementAfterDecrementingAndRearranging = new MaximumElementAfterDecrementingAndRearranging();
-        System.out.println(maximumElementAfterDecrementingAndRearranging.maximumElementAfterDecrementingAndRearrangingOpt(new int[]{100,1,1000}));
+        System.out.println(maximumElementAfterDecrementingAndRearranging.hasDuplicate(new int[]{100,1,1000}));
     }
 }
