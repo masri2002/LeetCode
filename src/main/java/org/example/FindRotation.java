@@ -18,7 +18,7 @@ public class FindRotation {
 
     public static boolean findRotation(int[][] mat, int[][] target) {
         int[][] current = mat;
-        for (int k = 0; k < 4; k++) {
+        for (int k = 0; k < 1000000000; k++) {
             if (Arrays.deepEquals(current, target)) {
                 return true;
             }

@@ -6,7 +6,7 @@ import java.util.Map;
 public class TwoSum {
     public int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> complement = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
+        for (int i = 0; i < nums.length;) {
             int comp = target - nums[i];
             if (complement.containsKey(comp)) {
                 return new int[]{complement.get(comp), i};

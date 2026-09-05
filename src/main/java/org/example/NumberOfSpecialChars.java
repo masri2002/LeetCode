@@ -1,6 +1,6 @@
 package org.example;
 
-import java.util.*;
+import java.util.Arrays;
 
 public class NumberOfSpecialChars {
 //    public int numberOfSpecialChars(String word) {
@@ -30,38 +30,38 @@ public class NumberOfSpecialChars {
 //        return specialChars.size();
 //    }
 
-//    optimal
+    //    optimal
     public int numberOfSpecialChars(String word) {
-        int lowerpos[]=new int[26];
-        int upperpos[]=new int[26];
-        int n=word.length();
-        Arrays.fill(lowerpos,-1);
-        Arrays.fill(upperpos,-1);
-        int special=0;
+        int[] lowerChars = new int[26];
+        int[] uppers = new int[26];
+        int n = word.length();
+        Arrays.fill(lowerChars, -1);
+        Arrays.fill(uppers, -1);
+        int special = 0;
 
-        for(int i=0;i<n;i++){
-            char letter=word.charAt(i);
-            int ascii=(int)letter;
+        for (int i = 0; i < n; i++) {
+            char letter = word.charAt(i);
+            int ascii = letter;
 
-            if(ascii>=65 && ascii<97){
-                if(upperpos[letter-'A']<0){
-                    upperpos[letter-'A']=i;
+            if (ascii >= 65 && ascii < 97) {
+                if (uppers[letter - 'A'] < 0) {
+                    uppers[letter - 'A'] = i;
                 }
-            }
-            else{
-                lowerpos[letter-'a']=i;
+            } else {
+                lowerChars[letter - 'a'] = i;
             }
         }
 
-        for(int i=0;i<26;i++){
-            if(lowerpos[i]>=0 && upperpos[i]>=0 && lowerpos[i]<upperpos[i])special++;
+        for (int i = 0; i < 26; i++) {
+            if (lowerChars[i] < uppers[i] && uppers[i] >= 0 && lowerChars[i]>=0) special++;
         }
 
         return special;
 
     }
+
     public static void main(String[] args) {
         NumberOfSpecialChars numberOfSpecialChars = new NumberOfSpecialChars();
-        System.out.println(numberOfSpecialChars.numberOfSpecialChars("AbcbDBdD"));
+        System.out.println(numberOfSpecialChars.numberOfSpecialChars("abc"));
     }
 }
